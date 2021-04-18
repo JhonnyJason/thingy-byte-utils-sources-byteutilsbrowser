@@ -1,5 +1,7 @@
 byteutilsbrowser = {}
 
+encoder = new TextEncoder("utf-8")
+decoder = new TextDecoder("utf-8")
 
 ############################################################
 byteToHex = (byte) ->
@@ -17,11 +19,10 @@ bufferToBigInt = (byteBuffer) ->
 
 ############################################################
 bufferToUtf8 = (byteBuffer) ->
-    byteArray = new Uint8Array(byteBuffer)
-    return String.fromCharCode.apply(null, byteArray)
+    return decoder.decode(byteBuffer)
 
-utf8ToBufferBrowser = (utf8) ->  
-    bytes = (new TextEncoder()).encode(utf8)
+utf8ToBufferBrowser = (utf8) ->
+    bytes = encoder.encode(utf8)
     return bytes.buffer
 
 ############################################################
