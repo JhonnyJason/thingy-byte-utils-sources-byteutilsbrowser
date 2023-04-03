@@ -10,10 +10,10 @@ bigIntMap = slots.map((el,idx) -> BigInt(idx))
 ############################################################
 hexChars = Array.from("0123456789abcdef")
 
-frontHexMap = {}
+frontHexMap = new Array(256)
 hexChars.forEach( (el) -> frontHexMap[el] = 16*parseInt(el, 16))
 
-backHexMap = {}
+backHexMap = new Array(256)
 hexChars.forEach( (el) -> backHexMap[el] = parseInt(el, 16))
 
 
